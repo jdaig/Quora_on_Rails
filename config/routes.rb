@@ -70,7 +70,7 @@ Rails.application.routes.draw do
 
   get "/ask" => "answers#index"
   post "/answer" => "answers#create"
-  get "/upvote/:q_id" => "answers#upvote"
+  get "/upvote" => "answers#upvote"
 
   get "/index" => "questions#index"
 

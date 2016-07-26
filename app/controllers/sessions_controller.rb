@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def index
     #recordar hacer la vista en el view de session
+    # por default te manda a la vista correspondiente (sessionU/index)
   end
 
   def logout

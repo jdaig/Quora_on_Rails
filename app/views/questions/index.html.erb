@@ -2,9 +2,9 @@
   <nav>
     <div>
     <div id="barra">
-    <ul>
-      <li><a href="/ask">Ask a question</a></li>
-      <li><a href="/logout">Log out</a></li>
+    <ul>  
+      <li><%= link_to("Ask a question", controller: "answers", class: "index") %><!-- <a href="/ask">Ask a question</a> --></li>
+      <li><%= link_to("Log out", controller: "sessions", class: "logout") %><!-- <a href="/logout">Log out</a> --></li>
     </ul>
     <br clear="all">
     </div>
@@ -23,7 +23,10 @@
         <%= question.title %><br><br>
         <%= question.description%><br><br>
         <b>Votes: </b>
-.       <span id="change_votes"><%=question.votes%></span><br><a class="upvote" href="/upvote/<%=question.id%>">Upvote</a><br>
+        <span id="change_votes_<%= question.id %>"><%=question.votes%></span>
+        <br>
+        <%= link_to("Upvote", upvote_path(q_id: question.id) , class: "upvote", remote: true) %>
+        <br>
         <%answer = Answer.where(questions_id: question.id)%>
         <%if answer.empty?%>
           <br><b>Answers:</b><br>

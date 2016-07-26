@@ -14,12 +14,11 @@ class AnswersController < ApplicationController
   end
 
   def upvote
-    question_id = params[:q_id]
-    question =  Question.find(question_id)
+    @question_id = params[:q_id]
+    question =  Question.find(@question_id)
     votes = question.votes + 1
     question.update(votes: votes)
-    total_votes = question.votes
-    total_votes.to_s
+    @total_votes = question.votes
   end
 
 end

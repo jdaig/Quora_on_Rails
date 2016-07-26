@@ -5,9 +5,9 @@ class UsersController < ApplicationController
 
 
   def register
-    name = params[:name]
-    email = params[:email]
-    password = params[:password]
+    name = params[:user][:name]
+    email = params[:user][:email]
+    password = params[:user][:password]
     u = User.new(name: name, email: email, password: password)
 
     if u.save 
@@ -17,10 +17,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
+  def login 
     @error_message = ""
-    email = params[:email]
-    password = params[:password]
+    email = params[:user][:email]
+    password = params[:user][:password]
   #buscar sio existe el usuario
     user = User.authenticate(email, password)
     if user 

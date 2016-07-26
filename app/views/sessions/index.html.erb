@@ -10,18 +10,33 @@
   <%end %>
   <%= @error_message %>
  <div id="login_credentials">
-   <b style="color:#990000">Inicia Sesión o Regístrate para continuar...</b><br><br>
-   <form action="/register" method="post">
+  <b style="color:#990000">Inicia Sesión o Regístrate para continuar...</b><br><br>
+  <%= form_for :user, url: { controller: 'users', action: "register"} do |f| %>
+    <%= f.label :register, style: "color:#990000; font-weight:bold" %><br>
+    <%= f.text_field :name, placeholder: "Name"%><br />
+    <%= f.text_field :email, placeholder: "Email"%><br>
+    <%= f.password_field :password %><br>
+    <%= f.submit :"Join us", class: "btn" %>
+  <% end %>
+  <br>
+  <br>
+  <%= form_for :user, url: { controller: 'users', action: "login"} do |f| %>
+    <%= f.label :"log in", style: "color:#990000; font-weight:bold" %><br>
+    <%= f.text_field :email, placeholder: "Email"%><br>
+    <%= f.password_field :password %><br>
+    <%= f.submit :"Login", class: "btn" %>
+  <% end %>
+  <!--  <form action="/register" method="post">
     <b style="color:#990000">Registro.</b><br><br>
     <input type="text" name="name" placeholder="Nombre"><br>
     <input type="text" name="email" placeholder="Email"><br>
     <input type="password" name="password" placeholder="Contraseña"><br><br>
     <input type="submit" name="register" value="Register"><br><br>
-  </form>
-  <form action="/login" method="post">  
+  </form> -->
+ <!--  <form action="/login" method="post">  
     <b style="color:#990000">Inicia Sesión.</b><br><br>
     <input type="text" name="email" placeholder="Email"><br>
     <input type="password" name="password" placeholder="Contraseña"><br><br>
     <input type="submit" name="login" value="Log in"><br><br>
   </form>
- </div>
+ </div> -->

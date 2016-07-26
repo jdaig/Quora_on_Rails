@@ -13,8 +13,14 @@ class UsersController < ApplicationController
     if u.save 
       @bulean = true
       session[:id] = u.id
-      redirect_to root_path
+      redirect_to question_path
+    else
+      # mostrar los errores en la vista root path
+      @error_message = u.errors.messages[:email]
+      # render root_path
+      render template: "sessions/index"
     end
+    
   end
 
   def login
@@ -29,7 +35,7 @@ class UsersController < ApplicationController
     else
   #obtener id y email para crear sesión
       @error_message = "Usuario Inválido"
-      redirect_to root_path
+      render root_path
     end
   end
 

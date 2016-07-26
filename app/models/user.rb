@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
       # ej. User.authenticate('fernando@codea.mx', 'qwerty')
   has_many :questions
   
+  validates :email, format: { with: /\w*[@][a-z]*[.][a-z]*/i, message: "Invalid email" } 
+  validates :password, format: { with: /[A-Z][A-Za-z]*[0-9]*/, message: "Password must have, at least, one capital letter and one number " } 
+
   def self.authenticate(email, password)
     # si el email y el password corresponden a un usuario valido, regresa el usuario
     # de otra manera regresa nil

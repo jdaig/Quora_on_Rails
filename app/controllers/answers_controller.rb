@@ -7,8 +7,10 @@ class AnswersController < ApplicationController
   end
 
   def create
-    description = params[:answer_description]
-    question_id = params[:question_id]
+    p '*'*50
+    p params[:answer]
+    description = params[:answer][:answer_description]
+    question_id = params[:answer][:question_id]
     answer = Answer.create(description: description, users_id: session[:id], questions_id: question_id)
     redirect_to questions_path
   end

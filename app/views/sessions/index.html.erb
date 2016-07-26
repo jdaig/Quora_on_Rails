@@ -9,10 +9,10 @@
     <% @bulean2 = false %>
   <%end %>
   <% if @error_message %>
-      <%@error_message.each do |message|%>
-      <p style="color:red"><%=message%></p>
-      <%end%>
-    <%end%>
+  <%@error_message.each do |message|%>
+  <p style="color:red"><%=message%></p>
+  <%end%>
+  <% end %>
  <div id="login_credentials">
   <b style="color:#990000">Inicia Sesión o Regístrate para continuar...</b><br><br>
   <%= form_for :user, url: { controller: 'users', action: "register"} do |f| %>

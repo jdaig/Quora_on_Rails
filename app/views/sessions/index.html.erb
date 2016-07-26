@@ -13,8 +13,7 @@
   <p style="color:red"><%=message%></p>
   <%end%>
   <% end %>
- <div id="login_credentials">
-  <b style="color:#990000">Inicia Sesión o Regístrate para continuar...</b><br><br>
+  <b id="welcome_message" style="color:#990000">Inicia Sesión o Regístrate para continuar...</b><br><br>
   <%= form_for :user, url: { controller: 'users', action: "register"} do |f| %>
     <%= f.label :register, style: "color:#990000; font-weight:bold" %><br>
     <%= f.text_field :name, placeholder: "Name"%><br />
@@ -30,6 +29,7 @@
     <%= f.password_field :password %><br>
     <%= f.submit :"Login", class: "btn" %>
   <% end %>
+ </div>
   <!--  <form action="/register" method="post">
     <b style="color:#990000">Registro.</b><br><br>
     <input type="text" name="name" placeholder="Nombre"><br>

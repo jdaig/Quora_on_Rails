@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if u.save 
       @bulean = true
       session[:id] = u.id
-      redirect_to question_path
+      redirect_to questions_path
     else
       # mostrar los errores en la vista root path
       @error_message = u.errors.messages[:email]

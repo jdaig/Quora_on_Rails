@@ -99,3 +99,7 @@ li a {
 textarea {
   resize: none;
 }
+
+#welcome_mesage{
+  width: 100%;
+}
